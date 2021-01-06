@@ -1,0 +1,17 @@
+<br><br><br><br><br><br>
+<div class="container main-container">
+
+    <div class="row text-center">
+        
+        <div *ngFor="let photo of photos" class="col-md-4" style="padding-bottom: 30px;">
+            <div class="card h-100">
+                <a class="text-decoration-none">
+                    <div style="align-content:center;">
+                        <img src="{{ photo.thumbnailUrl }}" height="164px" width="253px" alt="">
+                    </div>
+                </a>
+                <h4 class="card-title">{{ photo.title | titlecase }}</h4>
+            </div>
+        </div>
+    </div>
+</div>
