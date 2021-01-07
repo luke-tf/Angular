@@ -8,31 +8,16 @@
             <th class="table-dark">Email</th>
         </tr>
     </thead>
-    <tbody *ngFor="let users of users">
-        <tr>
+    <tbody>
+        <tr *ngFor="let users of users | paginate: { id: 'listing_users',
+        itemsPerPage: 5,
+        currentPage: page }">
             <td>{{ users.name }}</td>
             <td>{{ users.username }}</td>
             <td>{{ users.email }}</td>
         </tr>
     </tbody>
 </table>
-
-<nav aria-label="Page navigation example">
-    <ul class="pagination">
-      <li class="page-item">
-        <a class="page-link" aria-label="Previous">
-          <span aria-hidden="true">&laquo;</span>
-          <span class="sr-only">Previous</span>
-        </a>
-      </li>
-      <li class="page-item"><a class="page-link">1</a></li>
-      <li class="page-item"><a class="page-link">2</a></li>
-      <li class="page-item"><a class="page-link">3</a></li>
-      <li class="page-item">
-        <a class="page-link" aria-label="Next">
-          <span aria-hidden="true">&raquo;</span>
-          <span class="sr-only">Next</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
+<div style="float: right;">
+  <pagination-controls id="listing_users" maxSize="5" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
+</div>
